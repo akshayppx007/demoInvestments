@@ -50,7 +50,7 @@ function Login() {
 			toast.error(error);
 			dispatch(clearErrors());
 		}
-	}, [isAuthenticated, user, dispatch, error]);
+	}, [isAuthenticated, user, navigate, dispatch, error]);
 
 	return (
 		<>
