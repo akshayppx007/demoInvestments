@@ -16,8 +16,13 @@ function Invest() {
 	const [validated, setValidated] = useState(false);
 	const [ageOfInvestment, setAgeOfInvestment] = useState(1);
 	const interestPaid = investment?.interestPaid || 0;
-	const currentTime = Date.now();
-	const investmentTime = investment?.investmentTime || new Date(currentTime).toISOString();
+	const today = new Date();
+	const threeMonthsAgo = new Date();
+	threeMonthsAgo.setMonth(today.getMonth() - 3);
+
+	const investmentTime = investment?.investmentTime || threeMonthsAgo.toISOString()
+
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const form = event.currentTarget;
